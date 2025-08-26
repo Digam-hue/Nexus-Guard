@@ -1,0 +1,18 @@
+random_state: 42
+supervised:
+  model: "xgb_or_rf"   # choose "rf" or "logreg" if you prefer
+  rf:
+    n_estimators: 300
+    max_depth: null
+    class_weight: "balanced"
+unsupervised:
+  isolation_forest:
+    n_estimators: 200
+    contamination: 0.02
+fusion:
+  method: "weighted_sum"
+  weights:
+    supervised: 0.7
+    unsupervised: 0.3
+threshold:
+  risk_cut: 0.5
